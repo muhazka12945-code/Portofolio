@@ -1,0 +1,215 @@
+/* Indigo Theme Portfolio Styles */
+
+:root {
+    --indigo-primary: #4B0082;
+    --indigo-secondary: #6A5ACD;
+    --indigo-light: #9370DB;
+    --indigo-dark: #2E003E;
+    --text-light: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --shadow: rgba(75, 0, 130, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--indigo-primary), var(--indigo-secondary));
+    min-height: 100vh;
+}
+
+header {
+    background: var(--indigo-dark);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow);
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav button, nav a button {
+    background: var(--indigo-light);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav button:hover, nav a button:hover {
+    background: var(--indigo-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+main {
+    margin-top: 120px;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.photo-frame {
+    flex: 0 0 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--indigo-primary);
+    box-shadow: 0 8px 32px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+}
+
+#profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.biodata {
+    flex: 1;
+    min-width: 300px;
+}
+
+.biodata h2 {
+    color: var(--indigo-primary);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.biodata p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.education-item, .contact-info {
+    margin-bottom: 1.5rem;
+}
+
+.education-item h3, .contact-info p {
+    color: var(--indigo-primary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--indigo-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--indigo-primary);
+    text-decoration: underline;
+}
+
+footer {
+    background: var(--indigo-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo-frame {
+        flex: none;
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav button, nav a button {
+        margin: 0.25rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    .biodata p, .education-item p, .contact-info p {
+        font-size: 1rem;
+    }
+}
